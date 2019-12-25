@@ -6,8 +6,6 @@ import {Control, LocalForm, Errors} from 'react-redux-form';
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './LoadingComponent';
 
-
-
 const required = val => val && val.length;
 const maxLength = len => val =>!val || (val.length<= len); 
 const minLength = len => val =>  val && (val.length >= len);
@@ -186,15 +184,15 @@ function CampsiteInfo(props) {
 return <div />;
 }
 
-function RenderCampsite(props) {
+function RenderCampsite({campsite}) {
     return (
             
         <div className="col-md-5 m-1">
             <Card>
-            <CardImg top src={baseUrl + props.campsite.image} alt={props.campsite.name} />
+            <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
                 <CardBody>
-                    <CardTitle>{props.campsite.name}</CardTitle>
-                    <CardText>{props.campsite.description}</CardText>
+                    <CardTitle>{campsite.name}</CardTitle>
+                    <CardText>{campsite.description}</CardText>
                 </CardBody>
             </Card>
         </div>
