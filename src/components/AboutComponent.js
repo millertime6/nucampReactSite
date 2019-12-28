@@ -1,17 +1,17 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent'; 
 
-
-export function About(props) {
-
+ const About = function(props) {
+ if (props.partner) {
     return (
-        <Media key={partner.id} list> 
-            <RenderPartner partner= {partner}/>
+        <Media key={props.partner.id} list> 
+            <RenderPartner partner= {props.partner}/>
        </Media>
-        );
-    };
-// code provided
+    );
+}
+// code provided 
     return (
         <div className="container">
             <div className="row">
@@ -68,7 +68,8 @@ export function About(props) {
                 </div>
             </div>
     );
-    
+ }
+ 
 
 
 // assigment 3 code
@@ -88,29 +89,38 @@ const RenderPartner = ({partner})=>{
             </React.Fragment>
                 ) 
             }
-        return <div />
-    }
-
-
+    return (
+        <div />
+    );
+}
 
 // assignment for week 5
 function PartnerList (props) {
     const partners = props.partners.map(partner => {
-        if (isLoading) {
-            <Loading />
+        if (partner) {
+            return(
+                <Loading />
+            )
         }
-        if (errMess) {
+        if (props.errMess) {
+            return (
             <div className="col">
                 <h4>unable to load data</h4>
             </div>
+            )
         }
+        
         return (
-    <div className="mt-4">
-        <Media list>
-            {partners}
-        </Media>
-    </div>
-        ); 
+            <div className="mt-4">
+                <Media list>
+                    {partners}
+                </Media>
+            </div>
+            );
+        }
+    )}
     
     
-    export default About; 
+    
+        
+    export default About;

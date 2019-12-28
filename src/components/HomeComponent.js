@@ -6,7 +6,7 @@ import { FadeTransform } from 'react-animation-components';
 // import {campsites} from '../shared/campsites'; 
 
 
-function RenderCard({item, isLoading, errMess}) {
+function RenderCard(item, isLoading, errMess) {
     if (isLoading) {
         return (
              <Loading />
