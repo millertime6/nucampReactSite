@@ -19,11 +19,9 @@ export const ConfigureStore = () => {
             promotions: Promotions,
             ...createForms({
                 feedbackForm: InitialFeedback
-
             })
-        }),
+        }),       
         applyMiddleware(thunk, logger)
-
     );
 
     return store;

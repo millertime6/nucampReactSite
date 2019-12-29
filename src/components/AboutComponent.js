@@ -64,7 +64,7 @@ import { Loading } from './LoadingComponent';
                 <div className="col-12">
                     <h3>Community Partners</h3>
                 </div>
-                <PartnerList partners={props.partners} />
+                {/* <PartnerList partners={props.partners} /> */}
                 </div>
             </div>
     );
@@ -95,30 +95,30 @@ const RenderPartner = ({partner})=>{
 }
 
 // assignment for week 5
-function PartnerList (props) {
-    const partners = props.partners.map(partner => {
-        if (partner) {
-            return(
-                <Loading />
-            )
-        }
-        if (props.errMess) {
-            return (
-            <div className="col">
-                <h4>unable to load data</h4>
-            </div>
-            )
-        }
+// function PartnerList (props) {
+//     const partners = props.partners.partners.map(partner => {
+//         if (partner.isLoading) {
+//             return (
+//                     <Loading />
+//             )
+//         }
+//         if (partners.errMess) {
+//             return (
+//             <div className="col">
+//                 <h4>{partner.errMess}</h4>
+//             </div>
+//             )
+//         }
         
-        return (
-            <div className="mt-4">
-                <Media list>
-                    {partners}
-                </Media>
-            </div>
-            );
-        }
-    )}
+//         return (
+//             <div className="mt-4">
+//                 <Media list>
+//                     {partners}
+//                 </Media>
+//             </div>
+//             );
+//         }
+//     )}
     
     
     

@@ -6,7 +6,7 @@ import { FadeTransform } from 'react-animation-components';
 // import {campsites} from '../shared/campsites'; 
 
 
-function RenderCard(item, isLoading, errMess) {
+function RenderCard({item, isLoading, errMess}) {
     if (isLoading) {
         return (
              <Loading />
@@ -18,19 +18,13 @@ function RenderCard(item, isLoading, errMess) {
         );
     }
     return (
-        <FadeTransform
-            in
-            transformProps={{
-                exitTransform: 'scale(0.5) translateY(50%)'
-            }}>
-            <Card>
-                <CardImg src={baseUrl + item.image} alt={item.name} />
-                <CardBody>
-                    <CardTitle>{item.name}</CardTitle>
-                    <CardText>{item.description}</CardText>
-                </CardBody>
-            </Card>
-        </FadeTransform>
+        <Card>
+            <CardImg src={item.image} alt={item.name} />
+            <CardBody>
+            <CardTitle>{item.name}</CardTitle>
+            <CardText>{item.description}</CardText>
+            </CardBody>
+        </Card>
     );
 }
 
