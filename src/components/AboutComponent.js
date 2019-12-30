@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent'; 
 
  const About = function(props) {
+
  if (props.partner) {
     return (
         <Media key={props.partner.id} list> 
@@ -64,14 +65,12 @@ import { Loading } from './LoadingComponent';
                 <div className="col-12">
                     <h3>Community Partners</h3>
                 </div>
-                {/* <PartnerList partners={props.partners} /> */}
+                <PartnerList partners={props.partners} />
                 </div>
             </div>
     );
  }
  
-
-
 // assigment 3 code
 // task 2
 const RenderPartner = ({partner})=>{            
@@ -94,33 +93,34 @@ const RenderPartner = ({partner})=>{
     );
 }
 
-// assignment for week 5
-// function PartnerList (props) {
-//     const partners = props.partners.partners.map(partner => {
-//         if (partner.isLoading) {
-//             return (
-//                     <Loading />
-//             )
-//         }
-//         if (partners.errMess) {
-//             return (
-//             <div className="col">
-//                 <h4>{partner.errMess}</h4>
-//             </div>
-//             )
-//         }
-        
-//         return (
-//             <div className="mt-4">
-//                 <Media list>
-//                     {partners}
-//                 </Media>
-//             </div>
-//             );
-//         }
-//     )}
-    
-    
+const PartnerList = function(props){
+    const partners = props.partners.partners.map(partner => {
+        return (
+            <partner partner={partner} />
+            )
+        });
+        if (props.isLoading) {
+            return (
+                 <Loading />
+            );
+        }
+        if (props.errMess) {
+            return (
+                <div className="col">
+                    <h4>{props.errMess}</h4>
+                </div>
+            );
+        }
+        return (
+           <div className="col mt-4">
+               <Media list>
+                    <partners partners={partners} />
+               </Media>
+           </div>
+        )
+    }
+
+
     
         
     export default About;
